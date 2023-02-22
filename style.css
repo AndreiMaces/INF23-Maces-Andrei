@@ -3,4 +3,105 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: "Arial";
+}
+
+:root
+{
+    --color-primary: #FFB84C;
+    --color-secondary: #F16767;
+    --color-mute: #F5EAEA;
+    --color-optional: #A459D1;
+}
+
+.hero
+{
+    width: 100%;
+    height: 50vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.hero > .content
+{
+    text-align: center;
+    color: var(--color-primary);
+    border-bottom: 3px solid var(--color-optional);
+}
+
+.hero > .content > h1
+{
+    padding: 1rem;
+}
+
+.info > div
+{
+    padding: 2rem;
+    margin-bottom: 2rem;
+}
+
+.info
+{
+    max-width: 800px;
+    margin: 5rem auto;
+}
+
+.info h2
+{
+    color: var(--color-secondary);
+    margin: 1.3rem 0;
+}
+
+.info  p
+{
+    color: var(--color-optional);
+}
+
+.info p::first-letter {
+    padding-left: 2rem;
+}
+
+.about-us
+{
+    border: 1px solid var(--color-optional);
+}
+
+.about-you
+{
+    border: 1px solid var(--color-secondary);
+}
+
+.about-you p
+{
+    color: var(--color-secondary);
+}
+
+.about-you h2 {
+    color: var(--color-optional);
+}
+
+.cards
+{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    padding: 2rem;
+}
+
+.cards > .card
+{
+    width: 300px;
+    height: 300px;
+    background-color: var(--color-optional);
+}
+
+@media only screen and (min-width: 992px)
+{
+    .info > div
+    {
+        box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.249);
+    }
 }
