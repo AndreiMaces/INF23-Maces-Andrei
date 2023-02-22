@@ -98,6 +98,17 @@
     background-color: var(--color-optional);
 }
 
+.formular
+{
+    width: 800px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    font-size: 2rem;
+    margin: 5rem auto;
+}
+
 @media only screen and (min-width: 992px)
 {
     .info > div
