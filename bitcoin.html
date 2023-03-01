@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bitcoin</title>
+  </head>
+  <body>
+    <h1>Bitcoin <a href="index.html">Inapoi</a></h1>
+    <section>
+      <article>
+        <h2>Introducere</h2>
+        <p>
+          Comerțul pe Internet a ajuns să se bazeze aproape în întregime pe
+          instituții financiare pe post de intermediari de încredere pentru a
+          procesa plățile electronice. În timp ce sistemul funcționează bine
+          pentru majoritatea tranzacțiilor, el suferă din cauza slăbiciunii
+          inerente a modelului bazat pe încredere. Tranzacțiile complet
+          ireversibile nu sunt tocmai posibile, întrucât instituțiile financiare
+          nu pot evita să medieze disputele. Costul medierii crește costurile de
+          tranzacționare, limitând dimensiunea minimă practică a unei tranzacții
+          și eliminând posibilitatea micilor tranzacții uzuale, și apare un cost
+          mai mare prin pierderea abilității de a realiza plăți ireversibile
+          pentru servicii ireversibile. Din cauza posibilității de
+          reversibilitate crește și nevoia de încredere. Comercianții trebuie să
+          fie precauți cu clienții, stresându-i pentru mai multe informații
+          decât ar avea nevoie. Un anumit procent de fraudare este acceptat ca
+          fiind inevitabil. Aceste costuri și incertitudini legate de plăți pot
+          fi evitate personal prin folosirea banilor fizici, însă nu există
+          niciun mecanism care să efectueze plăți printr-un canal de comunicații
+          fără a apela la un intermediar de încredere.
+        </p>
+        <p>
+          unicații fără a apela la un intermediar de încredere. Avem nevoie de
+          un sistem de plată electronic bazat pe dovezi criptografice în
+          detrimentul încrederii, care să permită oricăror două părți să
+          tranzacționeze între ele în mod direct, fără a fi necesară o terță
+          parte în care să aibă încredere. Tranzacțiile care sunt practic
+          ireversibile din punct de vedere computațional ar proteja vânzătorii
+          de fraude, iar mecanismele escrow de rutină ar putea fi implementate
+          cu ușurință pentru a proteja cumpărătorii. În această lucrare propunem
+          o soluție pentru problema dublei cheltuiri folosind un server
+          distribuit peer-to-peer de marcaje temporale care să genereze dovada
+          computațională a ordinii cronologice a tranzacțiilor. Sistemul este
+          securizat cât timp nodurile oneste controlează în mod colectiv mai
+          multă putere de procesare decât orice grup de noduri care ar coopera
+          în cadrul unui atac.
+        </p>
+      </article>
+      <article>
+        <h2>Tranzacții</h2>
+        <p>
+          O monedă electronică o definim ca un lanț de semnături digitale.
+          Fiecare deținător transferă moneda către altul prin semnarea digitală
+          a unui hash al tranzacției anterioare și cheia publică a următorului
+          posesor și adăugând acestea la finalul monedei. Un beneficiar poate
+          verifica semnăturile pentru a verifica lanțul de posesiune.
+        </p>
+        <img src="imagini/diagrama1.png" alt="" />
+        <p>
+          Desigur, problema este aceea că beneficiarul nu poate verifica dacă
+          vreunul dintre proprietari a efectuat o dublă cheltuire. O soluție
+          comună constă în introducerea unei autorități centrale de încredere,
+          sau a unei monetării, care să verifice fiecare tranzacție pentru dublă
+          cheltuire. După fiecare tranzacție, moneda trebuie returnată
+          monetăriei pentru emiterea unei noi monede, și doar monedele emise
+          direct de monetărie sunt considerate ca nefiind dublu cheltuite.
+          Problema acestei soluții este că soarta întregului sistem monetar
+          depinde de compania din spatele monetăriei, întrucât fiecare
+          tranzacție trece prin aceasta, ca în cazul unei bănci.
+        </p>
+        <p>
+          Avem nevoie ca beneficiarul să știe dacă proprietarii anteriori nu au
+          semnat niciuna din tranzacțiile anterioare. Pentru scopul nostru, cea
+          mai veche tranzacție este cea care contează, deci nu ne interesează de
+          tentativele ulterioare de dublă cheltuire. Singura cale de a confirma
+          absența unei tranzacții este prin a cunoaște toate tranzacțiile. În
+          cadrul modelului bazat pe monetărie, aceasta cunoștea toate
+          tranzacțiile și decidea care a fost prima. Pentru a reuși acest lucru
+          fără un intermediar de încredere, trebuie ca tranzacțiile să fie
+          anunțate public [1] și avem nevoie de un sistem prin care
+          participanții să se pună de acord asupra unui istoric unic al ordinii
+          în care au primit tranzacțiile. Beneficiarul are nevoie de o dovadă că
+          pentru fiecare tranzacție majoritatea nodurilor au agreat care a fost
+          prima primită.
+        </p>
+      </article>
+    </section>
+  </body>
+</html>

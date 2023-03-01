@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ethereum</title>
+  </head>
+  <body>
+    <h1>Ethereum <a href="index.html">Inapoi</a></h1>
+    <section>
+      <article>
+        <h2>Istoric</h2>
+        <p>
+          Conceptul de monedă digitală descentralizată, precum și aplicațiile
+          alternative, precum registrele de proprietate, există de zeci de ani.
+          Protocoalele anonime de numerar electronic din anii 1980 și 1990,
+          bazate în cea mai mare parte pe o primitivă criptografică, cunoscută
+          sub numele de Chaumian Blinding, au furnizat o monedă cu un grad
+          ridicat de confidențialitate, dar nu au reușit să câștige tracțiune
+          din cauza dependenței lor de un sistem centralizat intermediar. În
+          1998, b-money ai lui Wei Dai au devenit prima propunere de a introduce
+          ideea de a crea bani prin rezolvarea puzzle-urilor computaționale,
+          precum și a consensului descentralizat, dar propunerea a avut puține
+          detalii cu privire la modul în care consensul descentralizat ar putea
+          fi implementat. În 2005, Hal Finney a introdus un concept al dovezilor
+          de muncă reutilizabile (rpow), un sistem care folosește ideile de
+          b-money și cele de puzzle-uri Hashcash dificile din punct de vedere al
+          calculului ale lui Adam Back, pentru a crea un concept pentru o
+          criptomonedă, dar din nou, nu a reușit să-și atingă idealul,
+          bazându-se pe computerul de încredere ca back-end. În 2009, o monedă
+          descentralizată a fost implementată pentru prima dată în practică de
+          Satoshi Nakamoto, combinând primitive stabilite pentru gestionarea
+          proprietății prin criptografie cu cheie publică cu un algoritm de
+          consens pentru a urmări cine deține monede, cunoscut sub numele de
+          „dovada muncii”.
+        </p>
+        <p>
+          Mecanismul din spatele dovezii muncii a fost un progres astronomic,
+          deoarece a rezolvat simultan două probleme. În primul rând, a furnizat
+          un algoritm de consens simplu și moderat eficient, permițând nodurilor
+          din rețea să convină în mod colectiv asupra unui set de actualizări
+          canonice ale statului registrului Bitcoin. În al doilea rând, a oferit
+          un mecanism pentru a permite intrarea liberă în procesul de consens,
+          rezolvând problema politică de a decide cine ajunge să influențeze
+          consensul, prevenind simultan atacurile de tip „sybil”. Face acest
+          lucru prin substituirea unei bariere formale în calea participării,
+          cum ar fi cerința de a fi înregistrată ca entitate unică pe o anumită
+          listă, cu o barieră economică - greutatea unui singur nod în procesul
+          de votare consens este direct proporțională cu puterea de calcul pe
+          care o aduce nodul. De atunci, a fost propusă o abordare alternativă
+          numită dovada mizei (PoS), calculând greutatea unui nod ca fiind
+          proporțională cu deținerile sale valutare și nu cu resursele de
+          calcul; discutarea meritelor relative ale celor două abordări
+          depășește scopul lucrării acesteia, dar trebuie remarcat faptul că
+          ambele abordări pot fi utilizate pentru a servi drept coloana
+          vertebrală a unei criptomonede.
+        </p>
+      </article>
+      <article>
+        <h2>Minarea</h2>
+        <p>
+          Dacă am avea acces la un serviciu centralizat de încredere,
+          implementarea acestui sistem ar fi banală; ar putea fi pur și simplu
+          codificat exact cum am descris, utilizând discul dur al unui server
+          centralizat pentru a ține evidența stării. Cu toate acestea, cu
+          Bitcoin încercăm să construim un sistem valutar descentralizat, așa că
+          va trebui să combinăm sistemul de tranziție de stare cu unul de
+          consens, pentru a ne asigura că toată lumea este de acord cu ordinea
+          tranzacțiilor. Procesul de consens descentralizat al Bitcoin necesită
+          noduri în rețea pentru a încerca în mod continuu să producă pachete de
+          tranzacții numite „blocuri”. Rețeaua este destinată să producă
+          aproximativ un bloc la fiecare zece minute, fiecare bloc conținând un
+          marcaj temporal, un nonce, o referință (adică hash) a blocului
+          anterior și o listă a tuturor tranzacțiilor care au avut loc de la
+          blocul anterior. În timp, acest lucru creează un „blockchain”
+          persistent, în continuă creștere, care se actualizează constant pentru
+          a reprezenta cea mai recentă stare a registrului Bitcoin.
+        </p>
+        <p>
+          Algoritmul de verificare a validării unui bloc, exprimat în acest
+          model, este după urmează:
+        </p>
+        <ol>
+          <li>
+            Verifică dacă blocul anterior la care face referire blocul există și
+            este valid.
+          </li>
+          <li>
+            Verifică dacă marcajul temporal al blocului este mai mare decât cel
+            al blocul anteriorfn. 2 și mai puțin de 2 ore în viitor
+          </li>
+          <li>Verifică dacă dovada muncii pe bloc este valabilă.</li>
+          <li>
+            Să spunem că S[0] este starea de la sfârșitul blocului anterior.
+          </li>
+          <li>
+            Să presupunem că TX este lista de tranzacții a blocului cu n
+            tranzacții. Pentru orice i din 0...n-1, alege S[i+1] =
+            APPLY(S[i],TX[i]) Dacă vreo aplicație returnează o eroare, ieși și
+            returnează fals.
+          </li>
+          <li>
+            Returnează true și înregistrează S[n] ca stare la sfârșitul acestui
+            bloc.
+          </li>
+        </ol>
+      </article>
+      <article>
+        <h2>Aplicații Alternative Blockchain</h2>
+        <p>
+          Ideea de a lua ideea blockchain de bază și de a o aplica altor
+          concepte are, de asemenea, o istorie lungă. În 1998, Nick Szabo a
+          venit cu conceptul de titluri de proprietate sigure cu autoritatea
+          proprietarului, un document care descrie modul în care „noi progrese
+          în tehnologia de baze de date replicate” va permite un sistem bazat pe
+          blockchain pentru stocarea unui registru al celor care dețin un anumit
+          teren, creând un cadru elaborat, care să includă concepte precum
+          exploatarea fermieră, posesia adversă și impozitul pe teren georgian.
+          Cu toate acestea, la momentul respectiv nu a existat, din păcate,
+          niciun sistem eficient de baze de date replicate disponibil, și astfel
+          protocolul nu a fost niciodată pus în aplicare în practică. După 2009
+          însă, odată ce consensul descentralizat al Bitcoin a fost dezvoltat, o
+          serie de aplicații alternative au început să apară rapid.
+        </p>
+        <ul>
+          <li>
+            <strong>Namecoin</strong>
+            <span
+              >- creat în 2010, Namecoin este cel mai bine descris ca o bază de
+              date descentralizată de înregistrare a numelui. În protocoalele
+              descentralizate, cum ar fi Tor, Bitcoin și BitMessage, trebuie să
+              existe o modalitate de identificare a conturilor, astfel încât
+              alte persoane să poată interacționa cu ele, dar în toate soluțiile
+              existente, singurul tip de identificator disponibil este un hash
+              pseudo-aleatoriu ca 1LW79wp5ZBqaHW1jL5TCiBCQYtHagUWy. În mod
+              ideal, cineva ar dori să poată avea un cont cu un nume ca
+              „george”. Cu toate acestea, problema este că, dacă o persoană
+              poate crea un cont numit „george”, atunci altcineva poate folosi
+              același proces pentru a înregistra „george” pentru ei înșiși,
+              precum și să le impersonalizeze. Singura soluție este modelul
+              „first-to-file”, unde primul care înregistrează reușește și al
+              doilea eșuează - o problemă perfect potrivită pentru protocolul de
+              consens Bitcoin. Namecoin este cea mai veche și cea mai de succes
+              implementare a unui sistem de înregistrare a numelui folosind o
+              astfel de idee.
+            </span>
+          </li>
+          <li>
+            <strong>Monede colorate</strong> - scopul monedelor colorate este de
+            a servi ca protocol pentru a permite oamenilor să-și creeze
+            propriile monede digitale - sau, în cazul banal important al unei
+            monede cu o unitate, tokenuri digitale, pe blockchain-ul Bitcoin. În
+            protocolul de monede colorate, cineva „emite” o nouă monedă prin
+            atribuirea publică a unei culori la un anumit Bitcoin UTXO, iar
+            protocolul definește în mod recursiv (repetitiv), culoarea altor
+            UTXO pentru a fi aceeași cu culoarea intrării pe care tranzacția
+            care le-a creat o folosește (se aplică unele reguli speciale în
+            cazul intrărilor de culori mixte). Acest lucru permite
+            utilizatorilor să mențină portofele care conțin numai UTXO de o
+            anumită culoare și le folosesc în operațiunile lor ca bitcoin-uri
+            obișnuite, urmărind înapoi prin blockchain pentru a determina
+            culoarea oricărui UTXO pe care îl primesc.
+          </li>
+          <li>
+            <strong>Metacoins</strong> - ideea din spatele unei metacoin este de
+            a avea un protocol bazat pe Bitcoin, folosind tranzacții Bitcoin
+            pentru a stoca tranzacții cu metacoin, dar având o funcție de
+            tranziție de stare diferită, APLPPLY'. Deoarece protocolul metacoin
+            nu poate împiedica apariția tranzacțiilor metacoin nevalide în
+            blockchain-ul Bitcoin, se adaugă o regulă conform căreia dacă
+            APPLY'(S,TX) returnează o eroare, protocolul implicit este
+            APPLY'(S,TX) = S. Aceasta oferă un mecanism ușor pentru crearea unui
+            protocol arbitrar de criptomonedă, potențial cu funcții avansate
+            care nu pot fi implementate în interiorul Bitcoin în sine, dar cu un
+            cost de dezvoltare foarte scăzut, odată ce complexitatea mineritului
+            și a rețelelor este deja gestionată de protocolul Bitcoin.
+            Cripomonedele metacoin au fost utilizate pentru implementarea unor
+            clase de contracte financiare, înregistrarea numelor și schimbul
+            descentralizat.
+          </li>
+        </ul>
+      </article>
+    </section>
+  </body>
+</html>
