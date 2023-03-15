@@ -1,0 +1,51 @@
+
+
+html body
+{
+    padding: 0;
+    margin: 0;
+    background-color: rgb(49, 0, 102);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+    transition: background-color 0.5s;
+}
+
+.test
+{
+    transition: 0.5s;
+}
+
+.test::before
+{
+    display: inline-block;
+    content: "Apasă-mă!";
+    font-size: 8rem;
+    font-family: 'Courier New', Courier, monospace;
+    color: rgb(255, 38, 38);
+    text-shadow: 2px 2px 5px rgb(190, 190, 190);
+    transition: 0.5s;
+}
+
+.test:active::before
+{
+    transform: rotate(360deg);
+}
+
+body:has(.test:hover)
+{
+    background-color: rgb(255, 38, 38);
+}
+
+body:has(.test:hover) .test::before
+{
+    color: rgb(49, 0, 102);
+    text-shadow: 2px 2px 5px rgb(60, 60, 60);
+}
+
+body:has(.test:hover) .test
+{
+    transform: scale(1.2);
+}
