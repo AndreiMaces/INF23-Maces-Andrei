@@ -1,0 +1,59 @@
+html body
+{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+    overflow-x: hidden;
+}
+
+nav
+{
+    position: sticky;
+    top: 0;
+    padding: 0.5rem;
+    background-color: white;
+    box-shadow: 1px 1px 5px black;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+nav > div:nth-of-type(2) a
+{
+    margin-right: 2rem;
+}
+
+nav a 
+{
+    text-decoration: none;
+}
+
+.content
+{
+    margin: 0 auto;
+    max-width: 1200px;
+}
+
+h2
+{
+    font-size: 2rem;
+}
+
+.carduri
+{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.carduri > div
+{
+    width: 300px;
+    border: 1px solid black;
+    padding: 2rem;
+}
