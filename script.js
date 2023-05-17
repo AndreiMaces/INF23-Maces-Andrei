@@ -1,7 +1,15 @@
 document.addEventListener("DOMContentLoaded", function () {
+  const options = {
+    method: "GET",
+    headers: {
+      "X-RapidAPI-Key": API_KEY,
+      "X-RapidAPI-Host": "moviesdatabase.p.rapidapi.com",
+    },
+  };
+
   let table = new DataTable("#example", {
     ajax: function (d, cb) {
-      fetch("../ajax/data/objects.txt")
+      fetch("https://moviesdatabase.p.rapidapi.com/titles", options)
         .then((response) => response.json())
         .then((data) => cb(data));
     },
